@@ -7,12 +7,14 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDateTime;
+import java.util.List;
+
 @Entity
 @Table(name = "item")
 @Getter
 @Setter
 @ToString
-public class Item  {
+public class Item extends BaseEntity  {
     @Id
     @Column(name = "item_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,7 +31,15 @@ public class Item  {
     @Enumerated(EnumType.STRING)
     private ItemSellStatus itemsellStatus; // 상품판매 상태
 
-    private LocalDateTime regTime; // 등록시간
+//    private LocalDateTime regTime; // 등록시간
+//
+//    private LocalDateTime updateTime; // 수정시간
 
-    private LocalDateTime updateTime; // 수정시간
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name="member_item",
+            joinColumns = @JoinColumn(name="member_id"),
+            inverseJoinColumns = @JoinColumn(name = "item_id")
+    )
+    private List<Member> member;
 }

@@ -7,6 +7,7 @@ import com.querydsl.core.types.dsl.*;
 import com.querydsl.core.types.PathMetadata;
 import javax.annotation.processing.Generated;
 import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
@@ -26,6 +27,8 @@ public class QItem extends EntityPathBase<Item> {
     public final StringPath itemNm = createString("itemNm");
 
     public final EnumPath<com.shop.constant.ItemSellStatus> itemsellStatus = createEnum("itemsellStatus", com.shop.constant.ItemSellStatus.class);
+
+    public final ListPath<Member, QMember> member = this.<Member, QMember>createList("member", Member.class, QMember.class, PathInits.DIRECT2);
 
     public final NumberPath<Integer> price = createNumber("price", Integer.class);
 
