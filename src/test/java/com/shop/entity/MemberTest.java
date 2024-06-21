@@ -35,7 +35,7 @@ class MemberTest {
                 .orElseThrow(EntityNotFoundException::new);
         System.out.println("register time :"+ member1.getRegTime());
         System.out.println("update time :"+ member1.getUpdateTime());
-        System.out.println("create time :"+ member1.getCreateBy());
+        System.out.println("create time :"+ member1.getCreatedBy());
         System.out.println("modify time :"+ member1.getModifiedBy());
     }
 

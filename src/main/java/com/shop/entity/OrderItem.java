@@ -27,4 +27,19 @@ public class OrderItem extends BaseEntity {
     private int count;
 //    private LocalDateTime redTime;
 //    private LocalDateTime updateTime;
+
+    //item(상품) -> orderItem(주문상품)
+    public static OrderItem createOrderItem(Item item, int count){
+        OrderItem orderItem = new OrderItem();
+        orderItem.setItem(item);
+        orderItem.setCount(count);
+        orderItem.setOrderPrice(item.getPrice());
+        item.removeStock(count);
+        return orderItem;
+    }
+    public int getTotalPrice(){
+        return orderPrice*count;
+
+
+    }
 }

@@ -40,7 +40,7 @@ class ItemRepositoryTest {
         item.setItemNm("테스트 상품");
         item.setPrice(10000);
         item.setItemDetail("테스트 상품 상세 설명");
-        item.setItemsellStatus(ItemSellStatus.SELL);
+        item.setItemSellStatus(ItemSellStatus.SELL);
         item.setStockNumber(100);
         item.setRegTime(LocalDateTime.now());
         item.setUpdateTime(LocalDateTime.now());
@@ -55,7 +55,7 @@ class ItemRepositoryTest {
             item.setItemNm("테스트 상품" + i);
             item.setPrice(10000 + i);
             item.setItemDetail("테스트 상품 상세 설명" + i);
-            item.setItemsellStatus(ItemSellStatus.SELL);
+            item.setItemSellStatus(ItemSellStatus.SELL);
             item.setStockNumber(100);
             item.setRegTime(LocalDateTime.now());
             item.setUpdateTime(LocalDateTime.now());
@@ -129,7 +129,7 @@ class ItemRepositoryTest {
         //JPAQueryFactory -> JPAQuery를 생성
         //JPAQuery를 사용하기 위해서는 QXXX가 필요 -> QueryDSL를 의존성 추가->컴파일->사용가능설정
         JPAQuery<Item> query = queryFactory.selectFrom(qItem) //select * from item
-                .where(qItem.itemsellStatus.eq(ItemSellStatus.SELL)) // item_sell_status = SELL and
+                .where(qItem.itemSellStatus.eq(ItemSellStatus.SELL)) // item_sell_status = SELL and
                 .where(qItem.itemDetail.like("%"+"테스트 상품 상세 설명"+"%")) // item_detail like 테스트 상품 상세 설명
                 .orderBy(qItem.price.desc()); // order by price desc
         //JPAQuery -> fetch를 하면 결과를 반환한다
@@ -145,7 +145,7 @@ class ItemRepositoryTest {
             item.setItemNm("테스트 상품" + i);
             item.setPrice(10000 + i);
             item.setItemDetail("테스트 상품 상세 설명" + i);
-            item.setItemsellStatus(ItemSellStatus.SELL);
+            item.setItemSellStatus(ItemSellStatus.SELL);
             item.setStockNumber(100);
             item.setRegTime(LocalDateTime.now());
             item.setUpdateTime(LocalDateTime.now());
@@ -156,7 +156,7 @@ class ItemRepositoryTest {
             item.setItemNm("테스트 상품" + i);
             item.setPrice(10000 + i);
             item.setItemDetail("테스트 상품 상세 설명" + i);
-            item.setItemsellStatus(ItemSellStatus.SOLD_OUT);
+            item.setItemSellStatus(ItemSellStatus.SOLD_OUT);
             item.setStockNumber(100);
             item.setRegTime(LocalDateTime.now());
             item.setUpdateTime(LocalDateTime.now());
@@ -183,7 +183,7 @@ class ItemRepositoryTest {
         //StringUtils -> String SELL == ItemSellStatus.SELL
         if (StringUtils.equals(itemSellStat,ItemSellStatus.SELL)){
             //and qItem.itemsellStatus == ItemSellStatus.SELL(SELL)
-            booleanBuilder.and(qItem.itemsellStatus.eq(ItemSellStatus.SELL));
+            booleanBuilder.and(qItem.itemSellStatus.eq(ItemSellStatus.SELL));
         }
         //Pageable 객체를 생성하는 시작 인덱스 0이고 사이즈 5로 생성됩니다.
         Pageable pageable = PageRequest.of(0,5);

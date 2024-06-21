@@ -65,7 +65,7 @@ class ItemServiceTest {
                 .orElseThrow(EntityNotFoundException::new);
 
         assertEquals(itemFormDto.getItemNm(), item.getItemNm());
-        assertEquals(itemFormDto.getItemSellStatus(), item.getItemsellStatus());
+        assertEquals(itemFormDto.getItemSellStatus(), item.getItemSellStatus());
         assertEquals(itemFormDto.getItemDetail(), item.getItemDetail());
         assertEquals(itemFormDto.getPrice(), item.getPrice());
         assertEquals(itemFormDto.getStockNumber(), item.getStockNumber());

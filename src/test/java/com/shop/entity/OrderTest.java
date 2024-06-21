@@ -39,7 +39,7 @@ class OrderTest {
         item.setItemNm("테스트 상품");
         item.setPrice(10000);
         item.setItemDetail("상세설명");
-        item.setItemsellStatus(ItemSellStatus.SELL);
+        item.setItemSellStatus(ItemSellStatus.SELL);
         item.setStockNumber(100);
         item.setRegTime(LocalDateTime.now());
         item.setUpdateTime(LocalDateTime.now());
