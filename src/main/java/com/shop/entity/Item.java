@@ -30,7 +30,7 @@ public class Item extends BaseEntity  {
     @Column(nullable = false)
     private String itemDetail; // 상품상세 설명
     @Enumerated(EnumType.STRING)
-    private ItemSellStatus itemsellStatus; // 상품판매 상태
+    private ItemSellStatus itemSellStatus; // 상품판매 상태
 
 //    private LocalDateTime regTime; // 등록시간
 //
@@ -49,6 +49,6 @@ public class Item extends BaseEntity  {
         this.price = itemFormDto.getPrice();
         this.stockNumber = itemFormDto.getStockNumber();
         this.itemDetail = itemFormDto.getItemDetail();
-        this.itemsellStatus = itemFormDto.getItemSellStatus();
+        this.itemSellStatus = itemFormDto.getItemSellStatus();
     }
 }
